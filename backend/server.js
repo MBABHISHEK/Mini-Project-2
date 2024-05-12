@@ -1,10 +1,9 @@
 const express = require("express")
-const app = express()
 const dotenv = require("dotenv")
 const path = require("path")
 const cors = require("cors")
 const bodyParser = require("body-parser")
-
+const indexRoute = require("./routes/index")
 
 const connectDatabase = require("./helpers/database/connectDatabase")
 
@@ -12,13 +11,14 @@ dotenv.config({
     path: './Config/config.env'
 })
 
+const app = express()
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors())
 
-app.get("/", (req, res) => {
-    res.json({"message": ["alskhfnasoibfg", "oasdhnawuiegfaweonf"]})
-})
+app.use("/", indexRoute)
+
 
 
 const PORT = process.env.PORT || 5000
