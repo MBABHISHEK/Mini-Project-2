@@ -28,6 +28,6 @@ const AnswerSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-const Answer = mongoose.model("answer", CommentSchema)
+const Answer = mongoose.model("answer", AnswerSchema)
 
 module.exports = Answer;
