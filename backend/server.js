@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
 const indexRoute = require("./routes/index")
 
 const connectDatabase = require("./helpers/database/connectDatabase")
+const customErrorHandler = require("./middlewares/errors/customErrorHandler")
 
 dotenv.config({
     path: './Config/config.env'
@@ -19,7 +20,9 @@ app.use(cors())
 
 app.use("/", indexRoute)
 
+app.use(customErrorHandler)
 
+app.use(express.static(path.join(__dirname, "public")))
 
 const PORT = process.env.PORT || 5000
 

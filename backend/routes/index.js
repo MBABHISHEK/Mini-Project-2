@@ -2,16 +2,16 @@ const express = require("express")
 
 const router = express.Router()
 
-const authRoute = require("./auth")
-const questionRoute = require("./question")
-const answerRoute = require("./answer")
-const userRoute = require("./user")
+const authRoutes = require("./authRoutes") 
+const questionRoutes = requrie("./questionRoutes")
+const answerRoutes = require("./answerRoutes")
+const userRoutes = require("./userRoutes")
 
-/* router.use("./auth", authRoute)
-router.use("./answer", answerRoute)
-router.use("./question", questionRoute)
-router.use("./user", userRoute)
- */
+router.use("/auth", authRoutes)
+router.use("/question", questionRoutes)
+router.use("/user", userRoutes)
+router.use("/answer", answerRoutes)
+ 
 router.get("/", (req, res) => {
     res.json({"message": ["alskhfnasoibfg", "oasdhnawuiegfaweonf"]})
 })
