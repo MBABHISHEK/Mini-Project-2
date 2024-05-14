@@ -55,6 +55,7 @@ QuestionSchema.pre("remove", async function (next) {
     await Answer.deleteMany({
         question : question 
     })
+    next()
 
 })
 

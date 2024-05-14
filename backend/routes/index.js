@@ -3,7 +3,7 @@ const express = require("express")
 const router = express.Router()
 
 const authRoutes = require("./authRoutes") 
-const questionRoutes = requrie("./questionRoutes")
+const questionRoutes = require("./questionRoutes")
 const answerRoutes = require("./answerRoutes")
 const userRoutes = require("./userRoutes")
 

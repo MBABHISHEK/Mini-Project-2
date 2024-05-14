@@ -2,13 +2,13 @@ const CustomError = require("../../helpers/error/CustomError")
 const User = require("../../models/user")
 const jwt = require("jsonwebtoken")
 const asyncErrorWrapper = require("express-async-handler")
-const { isTokenincluded, getAccessTokenFromHeader } = require("../../helpers/auth/tokenHelper")
+const { isTokenIncluded, getAccessTokenFromHeader } = require("../../helpers/auth/tokenHelper")
 
 const getAccessToRoute = asyncErrorWrapper(async(req, res,next) => {
 
     const { JWT_SECRET_KEY } = process.env
 
-    if(!isTokenincluded(req)){
+    if(!isTokenIncluded(req)){
         return next(new CustomError("You are not authorized to access this route", 401))
     }
 
