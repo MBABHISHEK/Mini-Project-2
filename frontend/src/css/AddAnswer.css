@@ -141,9 +141,6 @@
     background-color: green;
 }
 
-.StarRating-wrapper svg {
-    cursor: pointer;
-}
 
 .alert-success-message {
     position: absolute;

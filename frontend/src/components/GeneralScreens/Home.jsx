@@ -67,11 +67,11 @@ const Home = () => {
 
         :
         <div>
-          <div className="story-card-wrapper">
+          <div className="question-card-wrapper">
             {questions.length !== 0 ?
-              questions.map((story) => {
+              questions.map((question) => {
                 return (
-                  <CardQuestion key={uuidv4()} story={story} />
+                  <CardQuestion key={uuidv4()} question={question} />
                 )
               }) : <NoQuestion />
             }
