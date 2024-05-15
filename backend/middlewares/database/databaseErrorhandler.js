@@ -25,7 +25,7 @@ const checkUserAndQuestionExist = asyncErrorWraper(async(req, res, next) => {
         user: req.user
     })
 
-    if(!story){
+    if(!question){
         return next(new CustomError("There is no question with that slug associated with user", 400))
     }
 

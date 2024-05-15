@@ -9,7 +9,7 @@
     border-radius: 5px;
 }
 
-.skeleton.Title {
+.skeleton.category {
     width: 97%;
     height: 23px;
     margin-bottom: 18px;
@@ -54,7 +54,7 @@
     position: relative;
 }
 
-.skeleton-story {
+.skeleton-question {
     position: relative;
 }
 
@@ -76,7 +76,7 @@
     .skeleton-wrapper {
         width: 100%;
     }
-    .skeleton-story {
+    .skeleton-question {
         width: 350px;
         margin: 0 auto;
     }

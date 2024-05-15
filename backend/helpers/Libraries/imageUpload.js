@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
             cb(null , path.join( rootDir,"/public/userPhotos"))
         }
         else {
-            cb(null , path.join( rootDir,"/public/storyImages"))
+            cb(null , path.join( rootDir,"/public/questionImages"))
         }
 
     } ,
@@ -27,9 +27,9 @@ const storage = multer.diskStorage({
         }
 
         else {
-            req.savedStoryImage ="image_" +new Date().toISOString().replace(/:/g, '-') + file.originalname 
+            req.savedQuestionImage ="image_" +new Date().toISOString().replace(/:/g, '-') + file.originalname 
 
-            cb(null ,req.savedStoryImage)
+            cb(null ,req.savedQuestionImage)
         }
 
     }

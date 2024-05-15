@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.editQuestion-form input#title {
+.editQuestion-form input#category {
     width: 100%;
     height: 55px;
     outline: 0;
@@ -73,7 +73,7 @@
     box-shadow: none !important;
 }
 
-.StoryImageField {
+.questionImageField {
     border: rgb(235, 235, 235) solid 1px;
     width: 100%;
     height: 240px;
@@ -87,12 +87,12 @@
     position: relative;
 }
 
-.StoryImageField svg {
+.questionImageField svg {
     font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.StoryImageField .txt {
+.questionImageField .txt {
     width: 350px;
     height: auto;
     margin-top: 14px;
@@ -100,7 +100,7 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
-.StoryImageField [type="file"] {
+.questionImageField [type="file"] {
     width: 100%;
     height: 200px;
     position: absolute;

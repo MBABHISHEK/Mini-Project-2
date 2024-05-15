@@ -23,7 +23,7 @@ const paginateHelper = async (model ,query ,req)=> {
    
     const regex = new RegExp(req.query.search, "i")    
 
-    const total = await model.countDocuments({"title" : regex})
+    const total = await model.countDocuments({"category" : regex})
   
     const pages = Math.ceil(total / pageSize )  ;
 
