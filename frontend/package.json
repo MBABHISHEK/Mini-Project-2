@@ -11,7 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^41.3.1",
+    "@ckeditor/ckeditor5-editor-classic": "^41.3.1",
+    "@ckeditor/ckeditor5-react": "^6.3.0",
     "axios": "^1.6.8",
+    "ckeditor": "^4.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",

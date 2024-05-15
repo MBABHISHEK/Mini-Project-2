@@ -1,11 +1,20 @@
 import React from 'react'
-import '../../Css/Pagination.css'
+import '../../css/Pagination.css'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { TiMinus } from 'react-icons/ti'
 
 const Pagination = ({ page, pages, changePage }) => {
     function numberRange(start, end) {
-        return new Array(end - start).fill().map((d, i) => i + start);
+        const MAX_SAFE_ARRAY_LENGTH = 2**31 - 1; // Maximum allowed array length (adjust if needed)
+
+        // Validate input
+        if (start < 0 || end < start) {
+            throw new Error("Invalid range: start must be non-negative and end must be greater than or equal to start");
+        }
+
+        const safeLength = Math.min(MAX_SAFE_ARRAY_LENGTH, Math.max(0, end - start));
+ 
+        return new Array(safeLength).fill().map((d, i) => i + start);
     }
 
     let middlePagination;

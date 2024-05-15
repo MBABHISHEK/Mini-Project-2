@@ -6,7 +6,7 @@ import SkeletonQuestion from "../Skeletons/SkeletonQuestion"
 import CardQuestion from "../QuestionScreens/CardQuestion"
 import NoQuestion from "../QuestionScreens/NoQuestion"
 import Pagination from "./Pagination"
-import "../css/Home.css"
+import "../../css/Home.css"
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -50,7 +50,7 @@ const Home = () => {
     useEffect(() => {
         setPage(1)
     }, [searchKey])
-
+    //console.log(questions)
     return (
         <div className="Inclusive-home-page">
       {loading ?
@@ -68,8 +68,8 @@ const Home = () => {
         :
         <div>
           <div className="question-card-wrapper">
-            {questions.length !== 0 ?
-              questions.map((question) => {
+            {questions?.length !== 0 ?
+              questions?.map((question) => {
                 return (
                   <CardQuestion key={uuidv4()} question={question} />
                 )

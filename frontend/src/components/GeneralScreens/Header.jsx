@@ -12,7 +12,7 @@ import { AuthContext } from '../../context/AuthContext';
 const Header = () => {
     const bool = localStorage.getItem("authToken") ? true : false
     const [auth, setAuth] = useState(bool)
-    const { activeUser } = useContext(AuthContext)
+    const  activeUser  = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 

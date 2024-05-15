@@ -6,7 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import { AiOutlineUpload } from 'react-icons/ai'
-import '../../css/EditStory.css'
+import '../../css/EditQuestion.css'
 
 const EditQuestion = () => {
     const { config } = useContext(AuthContext)
@@ -135,3 +135,5 @@ const EditQuestion = () => {
     </>
     )
 }
+
+export default EditQuestion
