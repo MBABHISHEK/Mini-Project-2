@@ -35,6 +35,8 @@ const getAllQuestions = asyncErrorWrapper(async(req, res, next) => {
 
     const paginationResult = await paginateHelper(Question, query, req)
 
+    console.log(paginationResult.page + " " + paginationResult.pages + " " + paginationResult.query)
+
     query = paginationResult.query
 
     query = query.sort("-likeCount -answerCount -createdAt")

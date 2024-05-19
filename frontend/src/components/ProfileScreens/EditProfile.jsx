@@ -27,7 +27,7 @@ const EditProfile = () => {
         formdata.append("photo", photo)
 
         try {
-            const { data } = await axios.post("/user/editProfile", formdata, config)
+            const { data } = await axios.post("http://localhost:5001/user/editProfile", formdata, config)
 
             setSuccess('Edit Profile successfully ')
             setTimeout(() => {
@@ -119,7 +119,7 @@ const EditProfile = () => {
                                     <div className="absolute">
                                         Currently Image
                                     </div>
-                                    <img src={`http://localhost:5000/userPhotos/${previousPhoto}`} alt="userPhoto" />
+                                    <img src={`http://localhost:5001/userPhotos/${previousPhoto}`} alt="userPhoto" />
                                 </div>
 
                             </div>

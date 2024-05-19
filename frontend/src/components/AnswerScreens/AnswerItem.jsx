@@ -18,7 +18,7 @@ const AnswerItem = ({ answer, activeUser }) => {
 
             const answer_id = answer._id
             try {
-                const { data } = await axios.post(`/answer/${answer_id}/getanswerLikeStatus`, { activeUser }, {
+                const { data } = await axios.post(`http://localhost:5001/answer/${answer_id}/getanswerLikeStatus`, { activeUser }, {
                     headers: {
                         "Content-Type": "application/json",
                         authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -49,7 +49,7 @@ const AnswerItem = ({ answer, activeUser }) => {
         const answer_id = answer._id
 
         try {
-            const { data } = await axios.post(`/answer/${answer_id}/like`, { activeUser }, {
+            const { data } = await axios.post(`http://localhost:5001/answer/${answer_id}/like`, { activeUser }, {
                 headers: {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,

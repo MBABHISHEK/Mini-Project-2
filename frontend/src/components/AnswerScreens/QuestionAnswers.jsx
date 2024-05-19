@@ -2,7 +2,7 @@ import React from 'react';
 import AnswerItem from './AnswerItem';
 import '../../css/QuestionAnswers.css'
 
-const questionComments = ({ answerlist, count, activeUser }) => {
+const questionAnswers = ({ answerlist, count, activeUser }) => {
 
     return (
         <>
@@ -27,4 +27,4 @@ const questionComments = ({ answerlist, count, activeUser }) => {
     )
 }
 
-export default questionComments;
+export default questionAnswers;

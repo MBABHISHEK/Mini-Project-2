@@ -26,7 +26,7 @@ const DetailQuestion = () => {
             setLoading(true)
             var activeUser = {}
             try{
-                const { data } = await axios.get("/auth/private", {
+                const { data } = await axios.get("http://localhost:5001/auth/private", {
                     headers: {
                       "Content-Type": "application/json",
                       authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -40,7 +40,7 @@ const DetailQuestion = () => {
                 setActiveUser({})
             }
             try{
-                const { data } = await axios.post(`/question/${slug}`, { activeUser })
+                const { data } = await axios.post(`http://localhost:5001/question/${slug}`, { activeUser })
                 setQuestion(data.data)
                 setLikeStatus(data.likeStatus)
                 setLikeCount(data.data.likeCount)
@@ -65,7 +65,7 @@ const DetailQuestion = () => {
         }, 1500)
     
         try {
-          const { data } = await axios.post(`/question/${slug}/like`, { activeUser }, {
+          const { data } = await axios.post(`http://localhost:5001/question/${slug}/like`, { activeUser }, {
             headers: {
               "Content-Type": "application/json",
               authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -90,7 +90,7 @@ const DetailQuestion = () => {
     
           try {
     
-            await axios.delete(`/question/${slug}/delete`, {
+            await axios.delete(`http://localhost:5001/question/${slug}/delete`, {
               headers: {
                 "Content-Type": "application/json",
                 authorization: `Bearer ${localStorage.getItem("authToken")}`,

@@ -7,12 +7,19 @@ const Pagination = ({ page, pages, changePage }) => {
     function numberRange(start, end) {
         const MAX_SAFE_ARRAY_LENGTH = 2**31 - 1; // Maximum allowed array length (adjust if needed)
 
+        //console.log(start + " " + end)
+
         // Validate input
         if (start < 0 || end < start) {
             throw new Error("Invalid range: start must be non-negative and end must be greater than or equal to start");
         }
 
-        const safeLength = Math.min(MAX_SAFE_ARRAY_LENGTH, Math.max(0, end - start));
+        const safeStart = Math.max(0, start); // Ensure non-negative start
+        const safeEnd = Math.min(end, MAX_SAFE_ARRAY_LENGTH + safeStart);
+
+        const safeLength = safeEnd - safeStart;
+
+        //console.log(safeLength)
  
         return new Array(safeLength).fill().map((d, i) => i + start);
     }
@@ -87,7 +94,8 @@ const Pagination = ({ page, pages, changePage }) => {
             }
 
             else {
-                let amountLeft = pages - page + 5
+                let amountLeft = Math.max(5, pages - page + 5); // Clamp amountLeft to minimum of 5
+
                 middlePagination = (
                     <>
                         <button onClick={() => changePage(1)}>1</button>

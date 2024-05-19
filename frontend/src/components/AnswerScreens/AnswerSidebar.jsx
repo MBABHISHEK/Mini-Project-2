@@ -14,7 +14,7 @@ const AnswerSidebar = ({slug, sidebarShowStatus, setSidebarShowStatus, activeUse
     }, [setAnswerList])
     const getQuestionAnswers = async () => {
         try {
-          const { data } = await axios.get(`/answer/${slug}/getAllAnswer`)
+          const { data } = await axios.get(`http://localhost:5001/answer/${slug}/getAllAnswer`)
           setAnswerList(data.data)
           setCount(data.count)
         }

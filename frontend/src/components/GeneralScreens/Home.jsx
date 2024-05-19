@@ -22,7 +22,9 @@ const Home = () => {
         const getQuestions = async () => {
             setLoading(true)
             try{
-                const { data } = await axios.get(`/question/getAllQuestions?search=${searchKey || ""}&page=${page}`)
+                const { data } = await axios.get(`http://localhost:5001/question/getAllQuestions?search=${searchKey || ""}&page=${page}`)
+                //console.log(data.pages + " " + "debugging" + type(data.data) + " " + data.data)
+                //console.log()
                 if(searchKey){
                     navigate({
                         pathname: '/',
@@ -38,19 +40,22 @@ const Home = () => {
                 }
                 setQuestions(data.data)
                 setPages(data.pages)
+                //console.log(data.pages)
                 setLoading(false)
             }
             catch(error){
+                console.log(error)
                 setLoading(true)
             }
         }
         getQuestions()
     }, [setLoading, search, page, navigate])
-
+    //console.log(searchKey)
     useEffect(() => {
         setPage(1)
     }, [searchKey])
-    //console.log(questions)
+    //console.log(questions.length + " " + questions)
+    //console.log(page + " " + pages)
     return (
         <div className="Inclusive-home-page">
       {loading ?
@@ -69,7 +74,7 @@ const Home = () => {
         <div>
           <div className="question-card-wrapper">
             {questions?.length !== 0 ?
-              questions?.map((question) => {
+              questions.map((question) => {
                 return (
                   <CardQuestion key={uuidv4()} question={question} />
                 )

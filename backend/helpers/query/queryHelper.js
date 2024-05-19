@@ -24,10 +24,12 @@ const paginateHelper = async (model ,query ,req)=> {
     const regex = new RegExp(req.query.search, "i")    
 
     const total = await model.countDocuments({"category" : regex})
-  
+    console.log(total + " " + pageSize)
     const pages = Math.ceil(total / pageSize )  ;
 
     query = query.skip(skip).limit(pageSize) ; 
+
+    console.log(page + " " + pages + " " + query)
 
     return {
         query : query  ,

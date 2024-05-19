@@ -35,7 +35,7 @@ const AddQuestion = () => {
         formdata.append("content", content)
 
         try {
-            const { data } = await axios.post("/question/addquestion", formdata, config)
+            const { data } = await axios.post("http://localhost:5001/question/addquestion", formdata, config)
             setSuccess('Add question successfully ')
 
             clearInputs()
@@ -53,7 +53,9 @@ const AddQuestion = () => {
 
         }
     }
-    return (
+      return (
+        
+
         <div className="Inclusive-addQuestion-page ">
         <Link to={'/'} >
             <FiArrowLeft />
@@ -105,8 +107,14 @@ const AddQuestion = () => {
             >Publish </button>
         </form>
 
-    </div>
-    )
+    </div> 
+    
+    )  
+   /*  return (
+        <div>
+            add question
+        </div>
+    ) */
 }
 
 export default AddQuestion

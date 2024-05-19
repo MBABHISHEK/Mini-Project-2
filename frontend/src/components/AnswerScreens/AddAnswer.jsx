@@ -17,7 +17,7 @@ const AddAnswer = ({ setSidebarShowStatus, slug, getQuestionAnswers, activeUser,
 
         e.preventDefault();
         try {
-            await axios.post(`/answer/${slug}/addAnswer`, { content }, {
+            await axios.post(`http://localhost:5001/answer/${slug}/addAnswer`, { content }, {
                 headers: {
                     "Content-Type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,

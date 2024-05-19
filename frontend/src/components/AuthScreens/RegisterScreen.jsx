@@ -24,7 +24,7 @@ const RegisterScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "/auth/register",
+        "http://localhost:5001/auth/register",
         {
           username,
           email,
@@ -68,7 +68,7 @@ const RegisterScreen = () => {
           </div>
 
           <div className="top-register-explain">
-            <h2>Welcome to MERN Blog </h2>
+            <h2>Welcome to Q&A web app </h2>
 
             <p>
               It easy and free to post your questions on any topic and connect with thounsands of users.

@@ -26,7 +26,7 @@ const EditQuestion = () => {
         const getQuestionInfo = async () => {
             setLoading(true)
             try{
-                const { data } = await axios.get(`/question/editQuestion/${slug}`, config)
+                const { data } = await axios.get(`http://localhost:5001/question/editQuestion/${slug}`, config)
                 setQuestion(data.data)
                 setCategory(data.data.category)
                 setImage(data.data.image)
@@ -49,7 +49,7 @@ const EditQuestion = () => {
         formdata.append("previousImage", previousImage)
 
         try {
-            const { data } = await axios.put(`/question/${slug}/edit`, formdata, config)
+            const { data } = await axios.put(`http://localhost:5001/question/${slug}/edit`, formdata, config)
 
             setSuccess('Question edited successfully ')
 
@@ -105,7 +105,7 @@ const EditQuestion = () => {
                             <div className="absolute">
                                 Currently Image
                             </div>
-                            <img src={`http://localhost:5000/questionImages/${previousImage}`} alt="storyImage" />
+                            <img src={`http://localhost:5001/questionImages/${previousImage}`} alt="storyImage" />
                         </div>
                         <div className="QuestionImageField">
                             <AiOutlineUpload />

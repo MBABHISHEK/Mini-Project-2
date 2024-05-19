@@ -46,7 +46,7 @@ const Header = () => {
                         <div className="auth_options">
 
 
-                            <Link className='addQuestion-link' to="/addquestion"><RiPencilFill /> Post Question </Link>
+                            <Link className='addQuestion-link' to="addquestion"><RiPencilFill /> Post Question </Link>
 
 
                             {/* <Link to="/readList" className='readList-link'>

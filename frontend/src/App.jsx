@@ -35,9 +35,9 @@ function App() {
 
                 <Route exact path="question/:slug" element={<DetailQuestion />} />
 
-                <Route exact path='addquestion' element={<PrivateRoute />}>
-                    <Route exact path='addquestion' element={<AddQuestion/>} />
-                </Route>
+                {/* <Route exact path='addquestion' element={<PrivateRoute />}>
+                </Route> */}
+                <Route exact path='addquestion' element={<AddQuestion/>} />
 
                 <Route exact path='profile' element={<PrivateRoute />}>
                     <Route exact path='profile' element={<Profile />} />
@@ -75,7 +75,7 @@ function App() {
 
             <Route exact path="forgotpassword" element={<ForgotPasswordScreen />} />
 
-            <Route exact path="/resetpassword" element={<ResetPasswordScreen />} />
+            <Route exact path="resetpassword" element={<ResetPasswordScreen />} />
         </Routes>
       </div>
     </Router>
