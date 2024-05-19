@@ -23,6 +23,7 @@ const addQuestion = asyncErrorWrapper(async(req, res, next) => {
         })
     }
     catch(error){
+        console.log("error")
         deleteImageFile(req)
         return next(error)
     }

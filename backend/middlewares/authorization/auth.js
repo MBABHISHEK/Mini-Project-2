@@ -9,6 +9,7 @@ const getAccessToRoute = asyncErrorWrapper(async(req, res,next) => {
     const { JWT_SECRET_KEY } = process.env
 
     if(!isTokenIncluded(req)){
+        console.log(req.headers)
         return next(new CustomError("You are not authorized to access this route", 401))
     }
 

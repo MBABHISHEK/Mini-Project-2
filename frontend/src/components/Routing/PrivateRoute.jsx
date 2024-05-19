@@ -31,7 +31,7 @@ const PrivateRoute = () => {
              //setIsLoading(false)
              //console.log(bool)
              //console.log(config)
-             console.log(auth)
+             //console.log(auth)
  
          } 
          catch (error) {

@@ -7,14 +7,14 @@ const AuthContextProvider = props => {
     const [activeUser, setActiveUser] = useState({})
     const [config, setConfig] = useState({
         headers: {
-            "Content-type": "application/json",
+            "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("authToken")}`
         }
     })
     useEffect(() => {
         const controlAuth = async () => {
             try{
-                const { data } = await axios.get("/auth/private", config)
+                const { data } = await axios.get("http://localhost:5001/auth/private", config)
                 setActiveUser(data.user)
             }
             catch(error){
@@ -23,7 +23,7 @@ const AuthContextProvider = props => {
             }
         }
         controlAuth()
-    }, [config])
+    }, [])
 
     return (
         <AuthContext.Provider value={{activeUser, setActiveUser, config, setConfig}}>
