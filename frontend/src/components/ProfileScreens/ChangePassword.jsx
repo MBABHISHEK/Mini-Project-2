@@ -5,7 +5,7 @@ import '../../css/ChangePassword.css'
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 
 const ChangePassword = () => {
-
+    console.log("change password")
     const [isRevealPass1, setIsRevealPass1] = useState(false)
     const [isRevealPass2, setIsRevealPass2] = useState(false)
     const [isRevealPass3, setIsRevealPass3] = useState(false)

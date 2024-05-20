@@ -19,7 +19,7 @@ const Profile = () => {
         var datestring = d.getDate() + " " + monthNames[d.getMonth()] + " , " + d.getFullYear()
         return datestring
     }
-
+    console.log("profile")
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const Profile = () => {
         }
 
         getUserProfile()
-    }, [setLoading, config, navigate])
+    }, [setLoading])
 
 
 

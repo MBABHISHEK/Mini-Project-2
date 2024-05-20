@@ -56,6 +56,7 @@ const Home = () => {
     }, [searchKey])
     //console.log(questions.length + " " + questions)
     //console.log(page + " " + pages)
+    console.log("home")
     return (
         <div className="Inclusive-home-page">
       {loading ?

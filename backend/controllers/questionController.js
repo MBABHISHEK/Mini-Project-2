@@ -6,16 +6,19 @@ const { searchHelper, paginateHelper } = require("../helpers/query/queryHelper")
 const addQuestion = asyncErrorWrapper(async(req, res, next) => {
     const {category, content} = req.body
 
-    var wordCount = content.trim().split(/\s+/).length
-    
+    //var wordCount = content.trim().split(/\s+/).length
+    //console.log("in addQuestion")
+    //console.log(category + " " + content)
     try{
+        console.log(req.body)
         const newQuestion = await Question.create({
             category,
             content,
             user: req.user._id,
             image: req.savedQuestionImage
         })
-
+        console.log(newQuestion)
+        console.log("inside question controller")
         return res.status(200).json({
             success: true,
             message: "question added successfully",

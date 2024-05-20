@@ -10,6 +10,7 @@ import SkeletonElement from '../Skeletons/SkeletonElement';
 import { AuthContext } from '../../context/AuthContext';
 
 const Header = () => {
+    console.log("header")
     const bool = localStorage.getItem("authToken") ? true : false
     const [auth, setAuth] = useState(bool)
     const  activeUser  = useContext(AuthContext)

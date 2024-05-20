@@ -14,13 +14,13 @@ const AddQuestion = () => {
     const imageEl = useRef(null)
     const editorEl = useRef(null)
     const [image, setImage] = useState('')
-    const [category, setcategory] = useState('')
+    const [category, setCategory] = useState('')
     const [content, setContent] = useState('')
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
 
     const clearInputs = () => {
-        setcategory('')
+        setCategory('')
         setContent('')
         setImage('')
         editorEl.current.editor.setData('')
@@ -33,9 +33,12 @@ const AddQuestion = () => {
         formdata.append("category", category)
         formdata.append("image", image)
         formdata.append("content", content)
-
+        console.log(formdata)
+        console.log(config)
         try {
+            console.log("inside try of handlesubmit")
             const { data } = await axios.post("http://localhost:5001/question/addquestion", formdata, config)
+            console.log('after post request')
             setSuccess('Add question successfully ')
 
             clearInputs()
@@ -53,6 +56,7 @@ const AddQuestion = () => {
 
         }
     }
+    console.log(success)
       return (
         
 
@@ -75,7 +79,7 @@ const AddQuestion = () => {
                 required
                 id="category"
                 placeholder="category"
-                onChange={(e) => setcategory(e.target.value)}
+                onChange={(e) => setCategory(e.target.value)}
                 value={category}
             />
 
@@ -99,12 +103,14 @@ const AddQuestion = () => {
                     type="file"
                     ref={imageEl}
                     onChange={(e) => {
-                        setImage(e.target.files[0])
-                    }}
+                        console.log(e.target.files[0]); // Log the selected file object
+                        setImage(e.target.files[0]);
+                      }}
+                      
                 />
             </div>
             <button type='submit' disabled={image ? false : true} className={image ? 'addQuestion-btn' : 'dis-btn'}
-            >Publish </button>
+            >Post </button>
         </form>
 
     </div> 

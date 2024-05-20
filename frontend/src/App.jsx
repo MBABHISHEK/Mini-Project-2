@@ -15,14 +15,13 @@ import NotFound from './components/GeneralScreens/NotFound'
 import AddQuestion from "./components/QuestionScreens/AddQuestion"
 import DetailQuestion from "./components/QuestionScreens/DetailQuestion"
 import EditQuestion from "./components/QuestionScreens/EditQuestion"
-import AuthContextProvider from './context/AuthContext'
 
 
 
 function App() {
 
   return (
-    <AuthContextProvider>
+    
     <Router>
       <div className='App'>
         <Routes>
@@ -33,38 +32,38 @@ function App() {
                     <Route exact path='/' element={<Home />} />
                 </Route>
 
-                <Route exact path="/question/:slug" element={<DetailQuestion />} />
+                <Route exact path={"/question/:slug"} element={<DetailQuestion />} />
 
-                <Route exact path='/addquestion' element={<PrivateRoute />}>
-                    <Route exact path='/addquestion' element={<AddQuestion/>} />
+                <Route exact path={'/addquestion'} element={<PrivateRoute />}>
+                    <Route exact path={'/addquestion'} element={<AddQuestion/>} />
                 </Route>
 
-                <Route exact path='/profile' element={<PrivateRoute />}>
-                    <Route exact path='/profile' element={<Profile />} />
+                <Route exact path={'/profile'} element={<PrivateRoute />}>
+                    <Route exact path={'/profile'} element={<Profile />} />
                 </Route>
 
-                <Route exact path='/edit_profile' element={<PrivateRoute />}>
-                  <Route exact path='/edit_profile' element={<EditProfile />} />
+                <Route exact path={'/edit_profile'} element={<PrivateRoute />}>
+                  <Route exact path={'/edit_profile'} element={<EditProfile />} />
                 </Route>
 
-                <Route exact path='/change_Password' element={<PrivateRoute />}>
-                      <Route exact path='/change_Password' element={<ChangePassword />} />
+                <Route exact path={'/change_Password'} element={<PrivateRoute />}>
+                      <Route exact path={'/change_Password'} element={<ChangePassword />} />
                 </Route>
 
-                <Route exact path='/question/:slug/like' element={<PrivateRoute />}>
-                    <Route exact path='/question/:slug/like' element={<DetailQuestion />} />
+                <Route exact path={'/question/:slug/like'} element={<PrivateRoute />}>
+                    <Route exact path={'/question/:slug/like'} element={<DetailQuestion />} />
                 </Route>
 
-                <Route exact path='/question/:slug/edit' element={<PrivateRoute />}>
-                    <Route exact path='/question/:slug/edit' element={<EditQuestion />} />
+                <Route exact path={'/question/:slug/edit'} element={<PrivateRoute />}>
+                    <Route exact path={'/question/:slug/edit'} element={<EditQuestion />} />
                 </Route>
 
-                <Route exact path='/question/:slug/delete' element={<PrivateRoute />}>
-                    <Route exact path='/question/:slug/delete' element={<DetailQuestion />} />
+                <Route exact path={'/question/:slug/delete'} element={<PrivateRoute />}>
+                    <Route exact path={'/question/:slug/delete'} element={<DetailQuestion />} />
                 </Route>
 
-                <Route exact path='/question/:slug/addQuestion' element={<PrivateRoute />}>
-                    <Route exact path='/question/:slug/addAnswer' element={<DetailQuestion />} />
+                <Route exact path={'/question/:slug/addAnswer'} element={<PrivateRoute />}>
+                    <Route exact path={'/question/:slug/addAnswer'} element={<DetailQuestion />} />
                 </Route>
 
             </Route>
@@ -79,7 +78,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-    </AuthContextProvider>
+  
   )
 }
 

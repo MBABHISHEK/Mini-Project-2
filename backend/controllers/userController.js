@@ -1,8 +1,7 @@
 const asyncErrorWrapper = require("express-async-handler")
 const User = require("../models/user")
-const Question = require("../models/question")
 const CustomError = require("../helpers/error/CustomError")
-const { comparePassword, validatePassword, validateUserInput } = require("../helpers/input/inputHelper")
+const { comparePassword, validateUserInput } = require("../helpers/input/inputHelper")
 
 const profile = asyncErrorWrapper(async(req, res, next) => {
     return res.status(200).json({
@@ -12,7 +11,7 @@ const profile = asyncErrorWrapper(async(req, res, next) => {
 })
 
 const editProfile = asyncErrorWrapper(async(req, res, next) => {
-    const { email, password } = req.body
+    const { email, username } = req.body
 
     const user = await User.findByIdAndUpdate(req.user.id, {
         email, username,

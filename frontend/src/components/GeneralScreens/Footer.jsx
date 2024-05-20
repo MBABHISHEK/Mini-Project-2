@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/Footer.css'
 
 const Footer = () => {
+    console.log("footer")
     return (
         <div>
             <div className="footer">

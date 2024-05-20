@@ -8,6 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 import '../../css/EditProfile.css'
 
 const EditProfile = () => {
+    console.log("edit profile")
     const { activeUser, config } = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate();

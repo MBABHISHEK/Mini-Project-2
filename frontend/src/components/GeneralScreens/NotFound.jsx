@@ -1,13 +1,15 @@
 import React from "react";
 import "../../css/NotFound.css"
-const NotFound = () => (
+const NotFound = () => {
+  console.log("not found")
+  return (
   <>
     <div className="notFound">
 
       <div className='stars'></div>
       <div className='stars2'></div>
       <div className='stars3'></div>
-      <div className='title'>
+      <div className='category'>
         <span className="text404">
           404
         </span>
@@ -21,5 +23,6 @@ const NotFound = () => (
   </>
 
 );
+}
 
 export default NotFound;
