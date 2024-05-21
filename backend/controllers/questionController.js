@@ -11,6 +11,7 @@ const addQuestion = asyncErrorWrapper(async(req, res, next) => {
     //console.log(category + " " + content)
     try{
         console.log(req.body)
+        console.log(req.savedQuestionImage)
         const newQuestion = await Question.create({
             category,
             content,

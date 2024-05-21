@@ -22,9 +22,9 @@ const getAccessToRoute = asyncErrorWrapper(async(req, res,next) => {
     if(!user){
         return next(new CustomError("You are not authorized to access this route", 401))
     }
-
+    //console.log("authorized user")
     req.user = user
-
+    //console.log(req.user)
     next()
 })
 

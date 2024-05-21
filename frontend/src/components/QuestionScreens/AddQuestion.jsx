@@ -36,6 +36,8 @@ const AddQuestion = () => {
         console.log(formdata)
         console.log(config)
         try {
+            console.log(image)
+            console.log(imageEl)
             console.log("inside try of handlesubmit")
             const { data } = await axios.post("http://localhost:5001/question/addquestion", formdata, config)
             console.log('after post request')
