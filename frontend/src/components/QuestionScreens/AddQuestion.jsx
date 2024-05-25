@@ -33,13 +33,21 @@ const AddQuestion = () => {
         formdata.append("category", category)
         formdata.append("image", image)
         formdata.append("content", content)
-        console.log(formdata)
-        console.log(config)
+        for (let value of formdata.values()) {
+            console.log(value);
+        }
+        //console.log(config)
+        const headers = {
+            'Content-Type': 'multipart/form-data',
+          }
         try {
-            console.log(image)
-            console.log(imageEl)
+           // console.log(image)
+            //console.log(imageEl)
             console.log("inside try of handlesubmit")
-            const { data } = await axios.post("http://localhost:5001/question/addquestion", formdata, config)
+            const { data } = await axios.post("http://localhost:5001/question/addQuestion", 
+            formdata, 
+            config,  
+            );
             console.log('after post request')
             setSuccess('Add question successfully ')
 
@@ -81,7 +89,10 @@ const AddQuestion = () => {
                 required
                 id="category"
                 placeholder="category"
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => {
+                    //console.log(e.target.value)
+                    setCategory(e.target.value)}
+                }
                 value={category}
             />
 
@@ -89,6 +100,7 @@ const AddQuestion = () => {
                 editor={ClassicEditor}
                 onChange={(e, editor) => {
                     const data = editor.getData();
+                    //console.log(data)
                     setContent(data)
                 }}
                 ref={editorEl}
@@ -105,7 +117,7 @@ const AddQuestion = () => {
                     type="file"
                     ref={imageEl}
                     onChange={(e) => {
-                        console.log(e.target.files[0]); // Log the selected file object
+                        //console.log(e.target.files[0]); // Log the selected file object
                         setImage(e.target.files[0]);
                       }}
                       
@@ -118,11 +130,7 @@ const AddQuestion = () => {
     </div> 
     
     )  
-   /*  return (
-        <div>
-            add question
-        </div>
-    ) */
+
 }
 
 export default AddQuestion

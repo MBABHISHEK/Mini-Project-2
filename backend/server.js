@@ -22,7 +22,7 @@ app.use("/", indexRoute)
 
 app.use(customErrorHandler)
 
-app.use(express.static(path.join(__dirname, "public")))
+app.use("/public",express.static(path.join(__dirname, "public")))
 
 const PORT = process.env.PORT || 5001
 

@@ -4,9 +4,9 @@ const multer = require("multer")
 const path = require("path")
 
 const storage = multer.diskStorage({
-
     destination : function(req, file, cb){
         const rootDir = path.dirname(require.main.filename)
+        console.log(file)
         if(file.fieldname === "photo"){
             cb(null , path.join( rootDir,"/public/userPhotos"))
         }
