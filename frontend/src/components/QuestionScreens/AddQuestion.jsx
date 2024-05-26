@@ -33,9 +33,9 @@ const AddQuestion = () => {
         formdata.append("category", category)
         formdata.append("image", image)
         formdata.append("content", content)
-        for (let value of formdata.values()) {
+        /* for (let value of formdata.values()) {
             console.log(value);
-        }
+        } */
         //console.log(config)
         const headers = {
             'Content-Type': 'multipart/form-data',

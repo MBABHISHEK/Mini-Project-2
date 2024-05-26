@@ -6,7 +6,7 @@ const path = require("path")
 const storage = multer.diskStorage({
     destination : function(req, file, cb){
         const rootDir = path.dirname(require.main.filename)
-        console.log(file)
+        //console.log(file)
         if(file.fieldname === "photo"){
             cb(null , path.join( rootDir,"/public/userPhotos"))
         }
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     } ,
     filename :function(req,file,cb ) {
 
-        console.log(file.fieldname)
+        //console.log(file.fieldname)
         if(file.fieldname ==="photo"){
             const extentions =file.mimetype.split("/")[1]
            
@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 
         else {
             req.savedQuestionImage ="image_" +new Date().toISOString().replace(/:/g, '-') + file.originalname 
-            console.log(req.savedQuestionImage)
+            //console.log(req.savedQuestionImage)
             cb(null ,req.savedQuestionImage)
         }
 

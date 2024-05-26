@@ -45,7 +45,7 @@ const QuestionSchema = new mongoose.Schema({
 QuestionSchema.pre("save", function (next) {
     if(!this.isModified("category"))
         next()
-    //console.log("inside pre-hook in addquestion")
+    console.log("inside pre-hook in addquestion")
     this.slug = this.makeSlug()
     //console.log('after makeSlug')
 })

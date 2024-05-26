@@ -10,16 +10,26 @@ const addQuestion = asyncErrorWrapper(async(req, res, next) => {
     //console.log("in addQuestion")
     //console.log(category + " " + content)
     try{
-        console.log(req.body)
+        //console.log(req.body)
         console.log(req.savedQuestionImage)
-        const newQuestion = await Question.create({
+        //console.log(req.user._id)
+        const newQuestion = new Question({
             category,
             content,
             user: req.user._id,
             image: req.savedQuestionImage
         })
-        console.log(newQuestion)
-        console.log("inside question controller")
+        newQuestion.save()
+        .then((savedQuestion) => {
+            console.log('Question saved successfully:', savedQuestion);
+            // Rest of your code after successful save
+          })
+          .catch((error) => {
+            console.error('Error saving question:', error);
+            // Handle errors during save operation
+          });
+        //console.log(newQuestion)
+        //console.log("inside question controller")
         return res.status(200).json({
             success: true,
             message: "question added successfully",

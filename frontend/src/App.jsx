@@ -34,8 +34,8 @@ function App() {
 
                 <Route exact path={"/question/:slug"} element={<DetailQuestion />} />
 
-                <Route exact path={'/addquestion'} element={<PrivateRoute />}>
-                    <Route exact path={'/addquestion'} element={<AddQuestion/>} />
+                <Route exact path={'/addQuestion'} element={<PrivateRoute />}>
+                    <Route exact path={'/addQuestion'} element={<AddQuestion/>} />
                 </Route>
 
                 <Route exact path={'/profile'} element={<PrivateRoute />}>
