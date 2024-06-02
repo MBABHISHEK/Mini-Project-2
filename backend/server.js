@@ -17,10 +17,7 @@ const app = express()
 app.use(express.json())
 //app.use(bodyParser.urlencoded({extended: true}))
 
-const corsOptions = {
-    origin: 'http://locahost:5173',
-    operationsSuccessStatus: 200
-}
+
 
 app.use(cors({
     "origin": "*",
@@ -33,7 +30,7 @@ app.use("/", indexRoute)
 
 app.use(customErrorHandler)
 
-app.use("/public",express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "public")))
 
 const PORT = process.env.PORT || 5001
 

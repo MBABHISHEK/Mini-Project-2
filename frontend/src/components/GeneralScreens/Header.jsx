@@ -10,7 +10,7 @@ import SkeletonElement from '../Skeletons/SkeletonElement';
 import { AuthContext } from '../../context/AuthContext';
 
 const Header = () => {
-    console.log("header")
+    //console.log("header")
     const bool = localStorage.getItem("authToken") ? true : false
     const [auth, setAuth] = useState(bool)
     const  activeUser  = useContext(AuthContext)
@@ -31,13 +31,14 @@ const Header = () => {
         localStorage.removeItem("authToken");
         navigate('/')
     };
+    //console.log(activeUser.activeUser)
     return (
         <header>
             <div className='averager'>
             <Link to="/" className="logo">
                     <h5>
                         Q&A web app
-
+                        <img src="../../assets/qa.png" width="90px" alt="" />
                     </h5>
                 </Link>
                 <SearchForm />
@@ -63,7 +64,7 @@ const Header = () => {
 
                                     :
 
-                                    <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
+                                    <img src={`http://localhost:5001/userPhotos/${activeUser.activeUser.photo}`} alt={activeUser.username} />
 
                                 }
 

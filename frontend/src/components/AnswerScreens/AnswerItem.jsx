@@ -18,12 +18,13 @@ const AnswerItem = ({ answer, activeUser }) => {
 
             const answer_id = answer._id
             try {
-                const { data } = await axios.post(`http://localhost:5001/answer/${answer_id}/getanswerLikeStatus`, { activeUser }, {
+                const { data } = await axios.post(`http://localhost:5001/answer/${answer_id}/getAnswerLikeStatus`, { activeUser }, {
                     headers: {
                         "Content-Type": "application/json",
                         authorization: `Bearer ${localStorage.getItem("authToken")}`,
                     },
                 })
+                //console.log(activeUser)
                 setLikeStatus(data.likeStatus)
             }
             catch (error) {
@@ -44,10 +45,10 @@ const AnswerItem = ({ answer, activeUser }) => {
 
 
     const handleanswerLike = async () => {
-        console.log("like answer ıtem ın  basıldı ")
+        console.log("like answer")
 
         const answer_id = answer._id
-
+        
         try {
             const { data } = await axios.post(`http://localhost:5001/answer/${answer_id}/like`, { activeUser }, {
                 headers: {
@@ -55,7 +56,7 @@ const AnswerItem = ({ answer, activeUser }) => {
                     authorization: `Bearer ${localStorage.getItem("authToken")}`,
                 },
             })
-
+            console.log(activeUser)
             setLikeCount(data.data.likeCount)
             setLikeStatus(data.likeStatus)
 
@@ -72,7 +73,7 @@ const AnswerItem = ({ answer, activeUser }) => {
             <div className="answer-top-block">
 
                 <section>
-                    <img src={`/userPhotos/${answer.user.photo}`} alt={answer.user.username} width="35" />
+                    <img src={`http://localhost:5001/userPhotos/${answer.user.photo}`} alt={answer.user.username} width="35" />
 
                     <div>
                         <span className='answer-author-username' >{answer.user.username}</span>

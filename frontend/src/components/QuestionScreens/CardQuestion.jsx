@@ -25,7 +25,7 @@ const Question = ({ question }) => {
         <div className="question-card">
             <Link to={`/question/${question.slug}`} className="question-link">
 
-                <img className=" question-image" src={`/questionImages/${question.image}`} alt={question.category} />
+                <img className=" question-image" src={`http://localhost:5001/questionImages/${question.image}`} alt={question.category} />
                 <div className="question-content-wrapper">
 
                     <h5 className="question-category">

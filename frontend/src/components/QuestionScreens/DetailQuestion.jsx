@@ -46,10 +46,6 @@ const DetailQuestion = () => {
                 setLikeCount(data.data.likeCount)
                 setQuestionLikeUser(data.data.likes)
                 setLoading(false)
-
-                const question_id = data.data._id
-
-
             }
             catch(error){
                 setQuestion({})
@@ -132,8 +128,8 @@ const DetailQuestion = () => {
 
                   <ul>
                     {question.user &&
-                      <li className='question-author-info'>
-                        <img src={`/userPhotos/${question.user.photo}`} alt={question.user.username} />
+                      <li className='question-user-info'>
+                        <img src={`http://localhost:5001/userPhotos/${question.user.photo}`} alt={question.user.username} />
                         <span className='question-author-username'>{question.user.username}  </span>
                       </li>
                     }
@@ -153,7 +149,7 @@ const DetailQuestion = () => {
 
                   {
                     !activeUser.username &&
-                    <div className='comment-info-wrap'>
+                    <div className='answer-info-wrap'>
 
                       <i onClick={(prev) => {
                         setSidebarShowStatus(!sidebarShowStatus)
@@ -162,7 +158,7 @@ const DetailQuestion = () => {
                       </i>
 
 
-                      <b className='commentCount'>{question.answerCount}</b>
+                      <b className='commentCount'>{question.AnswerCount}</b>
 
                     </div>
                   }
@@ -170,7 +166,7 @@ const DetailQuestion = () => {
                   {activeUser && question.user &&
                     question.user._id === activeUser._id ?
                     <div className="top_question_transactions">
-                      <Link className='editquestionLink' to={`/question/${question.slug}/edit`}>
+                      <Link className='editquestionLink' to={`http://localhost:5001/question/${question.slug}/edit`}>
                         <FiEdit />
                       </Link>
                       <span className='deleteQuestionLink' onClick={handleDelete}>
@@ -179,7 +175,17 @@ const DetailQuestion = () => {
                     </div> : null
                   }
                 </div>
+                <div className='question-content' >
 
+                  <div className="question-banner-img">
+                    <img src={`http://localhost:5001/questionImages/${question.image}`} alt={question.title} />
+
+                  </div>
+
+                  <div className='content' dangerouslySetInnerHTML={{ __html: (question.content) }}>
+                  </div>
+
+                </div>
               </div>
 
               <div className="AnswerFieldEmp">
@@ -190,17 +196,7 @@ const DetailQuestion = () => {
 
               </div>
 
-              <div className='question-content' >
-
-                <div className="question-banner-img">
-                  <img src={`/questionImages/${question.image}`} alt={question.title} />
-
-                </div>
-
-                <div className='content' dangerouslySetInnerHTML={{ __html: (question.content) }}>
-                </div>
-
-              </div>
+              
 
               {activeUser.username &&
                 <div className='fixed-question-options'>
@@ -230,7 +226,7 @@ const DetailQuestion = () => {
                         <FaRegComment />
                       </i>
 
-                      <b className='commentCount'>{question.commentCount}</b>
+                      <b className='commentCount'>{question.AnswerCount}</b>
 
                     </li>
 
@@ -252,7 +248,7 @@ const DetailQuestion = () => {
                       </i>
 
                       {activeUser &&
-                        question.author._id === activeUser._id ?
+                        question.user._id === activeUser._id ?
                         <div className="delete_or_edit_question  ">
                           <Link className='editquestionLink' to={`/question/${question.slug}/edit`}>
                             <p>Edit question</p>

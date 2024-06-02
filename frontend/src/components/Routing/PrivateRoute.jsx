@@ -31,7 +31,7 @@ const PrivateRoute = () => {
              //setIsLoading(false)
              //console.log(bool)
              //console.log(config)
-             console.log(auth)
+             //console.log(auth)
  
          } 
          catch (error) {
@@ -49,7 +49,7 @@ const PrivateRoute = () => {
  
          controlAuth()
      }, [bool, navigate])
-     console.log("private route" + auth)
+     //console.log("private route" + auth)
     return (auth ? <Outlet />  : <Home error={error} />)
 }
 

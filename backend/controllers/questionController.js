@@ -2,39 +2,31 @@ const asyncErrorWrapper = require("express-async-handler")
 const Question = require("../models/question")
 const deleteImageFile = require("../helpers/Libraries/deleteImageFile")
 const { searchHelper, paginateHelper } = require("../helpers/query/queryHelper")
+const mongoose = require("mongoose")
 
 const addQuestion = asyncErrorWrapper(async(req, res, next) => {
     const {category, content} = req.body
 
-    //var wordCount = content.trim().split(/\s+/).length
-    //console.log("in addQuestion")
-    //console.log(category + " " + content)
+
     try{
-        //console.log(req.body)
-        console.log(req.savedQuestionImage)
-        //console.log(req.user._id)
+
+        //console.log("Mongoose connection:", mongoose.connection.readyState);
+
         const newQuestion = new Question({
-            category,
-            content,
+            category: category,
+            content: content,
             user: req.user._id,
             image: req.savedQuestionImage
         })
-        newQuestion.save()
-        .then((savedQuestion) => {
-            console.log('Question saved successfully:', savedQuestion);
-            // Rest of your code after successful save
-          })
-          .catch((error) => {
-            console.error('Error saving question:', error);
-            // Handle errors during save operation
-          });
-        //console.log(newQuestion)
-        //console.log("inside question controller")
+        const savedQuestion = await newQuestion.save()
+
+        //console.log(savedQuestion);
+
         return res.status(200).json({
             success: true,
             message: "question added successfully",
             data: newQuestion
-        })
+        }) 
     }
     catch(error){
         console.log("error")
@@ -50,7 +42,7 @@ const getAllQuestions = asyncErrorWrapper(async(req, res, next) => {
 
     const paginationResult = await paginateHelper(Question, query, req)
 
-    console.log(paginationResult.page + " " + paginationResult.pages + " " + paginationResult.query)
+    //console.log(paginationResult.page + " " + paginationResult.pages + " " + paginationResult.query)
 
     query = paginationResult.query
 

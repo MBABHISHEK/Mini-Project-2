@@ -51,9 +51,9 @@ const addNewAnswerToQuestion = asyncErrorWrapper( async(req, res, next) => {
  const answerLikes = asyncErrorWrapper(async(req, res, next) => {
 
     const { activeUser } = req.body
-    const { question_id } = req.params
+    const { answer_id } = req.params
 
-    const answer = await Answer.findById(question_id)
+    const answer = await Answer.findById(answer_id)
 
     if(!answer.likes.includes(activeUser._id)){
 
